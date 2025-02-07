@@ -121,7 +121,7 @@ extension Compress on IVideoCompress {
   /// debugPrint(info.toJson());
   /// ```
   Future<MediaInfo?> compressVideo(
-    String path, {
+    List<String> paths, {
     VideoQuality quality = VideoQuality.DefaultQuality,
     bool deleteOrigin = false,
     int? startTime,
@@ -143,7 +143,7 @@ extension Compress on IVideoCompress {
     // ignore: invalid_use_of_protected_member
     setProcessingStatus(true);
     final jsonStr = await _invoke<String>('compressVideo', {
-      'path': path,
+      'paths': paths,
       'quality': quality.index,
       'deleteOrigin': deleteOrigin,
       'startTime': startTime,
